@@ -136,7 +136,7 @@
                         <div class="noticeTable">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped">
-                                    
+
                                     <thead>
                                         <tr>
                                             <th>Address</th>
@@ -145,12 +145,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
                                         {% for i in admit_card %}
                                         <tr>
                                             <td>{{i.job.job_name}}</td>
                                             <td>{{i.status}}</td>
-                                            {% if i.status == "Available" and request.user.username %} 
+                                            {% if i.status == "Available" and request.user.username %}
                                             <td><a href="{% url 'view_admit_card' i.admitcard_set.all.0.id %}" target="_blank">View</a></td>
                                             {% else %}
                                             <td>----</td>
@@ -166,17 +166,9 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122939704-1"></script>
-<script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'UA-122939704-1');
-    </script>
 
 
 
@@ -251,7 +243,7 @@
             //        }
             //    }
             //}
-            
+
             $('.dropdown-toggle').keydown(function (event) {
                 if (event.which == 9 ) {
                     debugger;
@@ -261,7 +253,7 @@
                     }
                     else {
                         var elements = $(this).next('ul').children();
-                       
+
                         //var element = $(this + ' ul >li');
                             //$(this).siblings().first().child('li').focus();
                         elements[0].focus();

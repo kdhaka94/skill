@@ -51,7 +51,7 @@
                                         <ul class="nav nav-tabs">
                                             <!--href="#pdetails"  href="#bdetails" href="#cdetails" href="#gdetails"-->
                                             <li class="pdetails active activeclass"><a data-toggle="tab"><i>1</i> <span>Basic Details</span></a></li>
-                                            <li class="badditionaldetails"><a href="{% if request.user.additiondetail_set.all.0.id %}{% url 'edit_additional' request.user.additiondetail_set.all.0.id %}{% else %}/addition_details/{% endif %}"><i>2</i> <span>Additional And Contact Details</span></a></li>
+                                            <li class="badditionaldetails"><a href="{% if request.user.additiondetail_set.all.0.id %}{% url 'edit_additional' request.user.additiondetail_set.all.0.id %}{% else %}#{% endif %}"><i>2</i> <span>Additional And Contact Details</span></a></li>
                                             
                                             
                                             <li class="bphotodetails"><a href="{% if register %}{% url 'agreecondition' %}{% else %}#{% endif %}"><i>3</i> <span>Photo And Signature Details</span></a></li>
@@ -607,6 +607,18 @@
                 $("#VerifyAadharNumber").prop('disabled','disabled');
                 $("#AadharNumber").val('');
                 $("#VerifyAadharNumber").val('');
+            });
+
+            $("#rbAadharNo").click(function () {
+                $("#TypeofID").prop('disabled','');
+                $("#IDnumber").prop('disabled','');
+            });
+
+            $("#rbAadharYes").click(function () {
+                $("#TypeofID").prop('disabled','disabled');
+                $("#IDnumber").prop('disabled','disabled');
+                $("#TypeofID").val('');
+                $("#IDnumber").val('');
             });
 
             $("#ChangedName1").click(function () {

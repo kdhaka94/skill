@@ -27,18 +27,18 @@
             text-align: center;
             border-width: 1px;
             padding-top: 3px;
-            
+
         }
         .contain {
-	
+
 	overflow-x: auto;
 	white-space: nowrap;
 }
         table{
             margin-top: 20px;
         }
-	
-	
+
+
 	th{
 		padding: .5em;
         border: 0.1em solid white;
@@ -50,15 +50,15 @@
     td{
         width:400px;
     }
-        
-    </style>   
+
+    </style>
 </head>
 <body>
 
     <div class="container-fluid">
         <div class="row align-content-center" style="background-color: #4572d4; color: white; ">
             <div class="col-md-6 text-center" >
-                <h4 style="font-size:18px;"> Welcome {{request.user.registration_set.all.0.name|title}} </h4> </div> 
+                <h4 style="font-size:18px;"> Welcome {{request.user.registration_set.all.0.name|title}} </h4> </div>
                 <div class="col-md-6" style="text-align:center; padding-top:5px;" > <h6> <a href="/change-password/" style="color: white;"> Change Password </a> &nbsp; &nbsp; <a href="/logout/" style="color: white;"> - Log Out</a></h6></div>
         </div>
     </div>
@@ -66,8 +66,8 @@
         <div class="row">
             <div class="col-md-3 Header"><a href="{% url 'candidate' %}" style="color: white;"> Latest Notification </a></div>
             <div class="col-md-3 Header active"><a href="{% url 'candidate-history' %}">Application History</a></div>
-            <div class="col-md-3 Header"><a href="/edit_register/{{request.user.registration_set.all.0.id}}/" style="color: white;">Modify Registration</a></div>
-            <div class="col-md-3 Header"><a href="{% url 'candidate-marks' %}" style="color: white;">Results/Marks</a></div>
+            <div class="col-md-3 Header"><a href="#" style="color: white;">Modify Registration</a></div>
+            <div class="col-md-3 Header"><a href="#" style="color: white;">Results/Marks</a></div>
         </div>
         <div class="table">
               <table border="1">
@@ -81,7 +81,7 @@
                     </tr>
                  </thead>
                  <tbody>
-                     
+
                       <!-- <td colspan="5" style="text-align: center; padding: 10px 0px 10px 0px; border: 0.2px solid grey;">  No data available in table </td> -->
                       {% for i in application %}
                       <tr>
@@ -103,8 +103,8 @@
                         <div class="footerDiv">
                             <div class="col-sm-12 col-md-12 text-center">
                                 <div class="footerTitle">
-                                    <h5>Staff Selection Commission</h5>
-                                    <p>Block No-12, CGO Complex, Lodhi Road, New Delhi-110003</p>
+                                    <h5>Skill India NSDC India</h5>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
@@ -125,20 +125,20 @@
                                     <p> Last updated on <label id="lastUpdatedDate"></label></p>
                                 </div>
                             </div>
-        
+
                             <div class="col-sm-5">
                                 <div class="termsandconditionLinks text-right">
                                     <ul>
-                                        
+
                                         <li><a href="../Portal/Archives.html">Archives</a></li>
                                         <li><a href="../Portal/Disclaimer.html">Disclaimer</a></li>
                                         <li><a href="../Portal/Sitemap.html">Sitemap</a></li>
                                         <li><a href="../Portal/Help.html">Help</a></li>
                                         <li><a href="../Portal/WebsitePolicy.html">Website Policies</a></li>
                                         <li><a href="../Portal/WebsiteManager.html">Web Information Manager</a></li>
-        
-                                        
-                                        
+
+
+
                                     </ul>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                 </div>
             </footer>
         </div>
-        
+
     </div>
     </body>
     {% endblock %}

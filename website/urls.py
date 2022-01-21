@@ -13,7 +13,7 @@ urlpatterns = [
     path('AdmitCard/', views.admit_card, name='admit'),
     path('AnswerKey/', views.answer_key, name='answer'),
     path('Apply/', views.apply, name='apply'),
-    path('Resutl/', views.results, name='result'),
+    path('Result/', views.results, name='result'),
     path('Feedback/', views.feedback, name='feedback'),
     path('login-user/', views.login_user, name='login_user'),
     path('addition-details/', views.additionDetails, name='addition_details'),
@@ -45,5 +45,11 @@ urlpatterns = [
     path('payment_status/<int:pid>/<int:aid>', payment_status, name='payment_status'),
     path('available_application/', views.available_application, name='available_application'),
 
-    
+    path('privacy/', views.web_privacy, name='privacy'),
+    path('terms&policy/', views.web_terms, name='terms&policy'),
+    path('about-us/', views.about_us, name='about-us'),
+    path('contact-us/', views.contact_us, name='contact-us'),
+    path('refund-policy/', views.refund_policy, name='refund-policy'),
+
+
 ]

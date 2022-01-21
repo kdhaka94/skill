@@ -3,7 +3,7 @@
 {% block body %}
 <style>
     .contain {
-	
+
 	overflow-x: auto;
 	white-space: nowrap;
     }
@@ -27,7 +27,7 @@
     <div class="container-fluid">
         <div class="row align-content-center" style="background-color: #4572d4; color: white; ">
             <div class="col-md-6 text-center" >
-            <h4 style="font-size:18px;"> Welcome {{request.user.registration_set.all.0.name|title}} </h4> </div> 
+            <h4 style="font-size:18px;"> Welcome {{request.user.registration_set.all.0.name|title}} </h4> </div>
             <div class="col-md-6" style="text-align:center; padding-top:5px;" > <h6> <a href="/change-password/" style="color: white; padding-top: 20;"> Change Password </a> &nbsp; &nbsp; <a href="/logout/" style="color: white;"> - Log Out</a> </h6> </div>
         </div>
     </div>
@@ -48,21 +48,21 @@
         </div>
 
 
-       
+
         <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="job" value="{{job.id}}">
         <div class="registration-formFields">
             <div class="col-sm-10 col-sm-offset-1">
                 <div id="printarea">
-                    
+
                     <div class="regFieldStructure regFieldActiveStep">
                         <h2 style="text-align: center; margin-bottom: 0; background-color: #394B71;">Instructions</h2>
-                        
+
                             <div class="text-uppercase text-danger" style="text-align: center; background-color: wheat;  padding-top: 10px; padding-bottom: 10px;"><b> Please be very careful while filling the application form </b></div>
-                       
+
                         <div class="col-sm-10 col-sm-offset-1">
-                            
+
                             <div class="form-group mt-4">
                                 <label class="col-sm-5" id="lblAadharSupp">1. Candidate's Name (As per the Matriculation Certificate):</label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
@@ -100,7 +100,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="dob" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{register.dob}}" readonly />   
+                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="dob" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{register.dob}}" readonly />
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="DateOfBirth" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{age}}" readonly/>   
+                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="DateOfBirth" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{age}}" readonly/>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="roll_number" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{register.roll_number}}" readonly />   
+                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="roll_number" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{register.roll_number}}" readonly />
                                         </div>
                                     </div>
                                 </div>
@@ -186,15 +186,15 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="DateOfBirth" maxlength="4" name="passing_year" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{register.get_passing_year_display}}" readonly/>   
+                                            <input class="form-control" id="DateOfBirth" maxlength="4" name="passing_year" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="{{register.get_passing_year_display}}" readonly/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                
-                                
-                                <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">15. Prefrence of Examination Center:  <sup>&#9733;</sup></label>
+
+
+                                <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">15. Prefrence of Job Location:  <sup>&#9733;</sup></label>
                                 <div class="col-sm-2 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <select class="custom-select" name="center1" id="center1" required><option value="">--Select--</option>
@@ -224,8 +224,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                
-                                <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">16. Medium for Typing Test: <sup>&#9733;</sup></label>
+
+                                <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">16. Medium of Board: <sup>&#9733;</sup></label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <select class="custom-select" name="test_meduim" id="testmeduim1">
@@ -237,8 +237,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                
-                                <label class="col-sm-5 pmtallocated" id="TypeofIDsupp"> <b style="color:orange"> Confirm medium for Typing test:</b>  </label>
+
+                                <label class="col-sm-5 pmtallocated" id="TypeofIDsupp"> <b style="color:orange"> Confirm medium of Board:</b>  </label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <select class="custom-select" name="test_meduim" id="testmeduim2">
@@ -259,7 +259,7 @@
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="science_student" type="radio" value="False" />
+                                            <input id="rbNo" name="science_student" type="radio" checked=True value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -275,7 +275,7 @@
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="Serviceman2" name="ex_Serviceman" type="radio" value="False" />
+                                            <input id="Serviceman2" name="ex_Serviceman" type="radio" checked=True value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -287,7 +287,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="Serviceman3" maxlength="10" name="discharge_ex_serviceman" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="date" value="" />   
+                                            <input class="form-control" id="Serviceman3" disabled maxlength="10" name="discharge_ex_serviceman" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="date" value="" />
                                         </div>
                                     </div>
                                 </div>
@@ -297,7 +297,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="Serviceman4" maxlength="5" name="service_inyears" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="" />   
+                                            <input class="form-control" id="Serviceman4" disabled maxlength="5" name="service_inyears" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="" />
                                         </div>
                                     </div>
                                 </div>
@@ -308,11 +308,11 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt" style="padding-top: 13px; padding-left: 5px;">
                                         <span>
-                                            <input id="rbYes" name="join_civil" type="radio" value="True" />
+                                            <input id="join1" name="join_civil" type="radio" value="True" />
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="join_civil" type="radio" value="False" />
+                                            <input id="join2" name="join_civil" type="radio" checked=True value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -324,7 +324,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="date_join_civil" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="date" value="" />   
+                                            <input class="form-control" id="join_date" disabled maxlength="10" name="date_join_civil" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="date" value="" />
                                         </div>
                                     </div>
                                 </div>
@@ -338,7 +338,7 @@
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="suffering_cerebral_palsy" type="radio" value="False" />
+                                            <input id="rbNo" name="suffering_cerebral_palsy" checked=True type="radio" value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -354,7 +354,7 @@
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="provide_exam_help" type="radio" value="False" />
+                                            <input id="rbNo" name="provide_exam_help" type="radio" checked=True value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -371,7 +371,7 @@
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="scribe_required" type="radio" value="False" />
+                                            <input id="rbNo" name="scribe_required" type="radio" checked=True value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -387,15 +387,15 @@
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="arrangement_own_scribe" type="radio" value="False" />
+                                            <input id="rbNo" name="arrangement_own_scribe" type="radio" checked=True value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                
+                            <!-- <div class="form-group">
+
                                 <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">19.5 If Scribe is to be arranged by SSC, then indicate medium:</label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
@@ -406,17 +406,17 @@
                                           </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-sm-5 pmtallocated">20 Whether seeking Age Relaxation  <sup>&#9733;</sup></label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt" style="padding-top: 13px;">
                                         <span>
-                                            <input id="rbYes" name="age_relaxation" type="radio" value="True" />
+                                            <input id="age1" name="age_relaxation" type="radio" value="True" />
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="age_relaxation" type="radio" value="False" />
+                                            <input id="age2" name="age_relaxation" checked=True type="radio" value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -424,12 +424,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                
+
                                 <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">20.1 If Yes. Age Relaxation code:
                                 </label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
-                                        <select class="custom-select" name="age_relaxation_code" id="inputGroupSelect01"><option value="">--Select--</option>
+                                        <select class="custom-select" name="age_relaxation_code" id="age3" disabled><option value="">--Select--</option>
                                             {% for o in age_relaxation_code %}
                                         <option value="{{o.0}}" {% if o.0 == register.age_relaxation %}selected {% endif %}>{{o.1}}</option>
                                         {% endfor %}
@@ -438,7 +438,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                
+
                                 <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">21. Highest Qualification: <sup>&#9733;</sup></label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
@@ -451,12 +451,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                
+
                                 <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">22. Details of Qualifying Educational Qualification: <sup>&#9733;</sup></label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <select class="custom-select" name="qualifying_educational_qualification" id="inputGroupSelect01">
                                             <option selected>--Please Select--</option>
+                                            <option value="10th standard">10th standard</option>
                                             <option value="12th standard">12th standard</option>
                                             <option value="12th standard or equivalent">12th standard or equivalent</option>
                                           </select>
@@ -484,7 +485,7 @@
                                                             <option selected>--Select Status--</option>
                                                             <option value="Passed">Passed</option>
                                                             <option value="Appearing">Appearing</option>
-                                                            
+
                                                           </select>
                                                     </div>
                                                 </div>
@@ -524,7 +525,7 @@
                                                 <div class="col-sm-12 forfieldPlace nopadding">
                                                     <div class="formfieldCnt">
                                                         <div class="forcalenderimg">
-                                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="roll_num" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="" />   
+                                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="roll_num" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -533,7 +534,7 @@
                                                 <div class="col-sm-12 forfieldPlace nopadding">
                                                     <div class="formfieldCnt">
                                                         <div class="forcalenderimg">
-                                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="pertencage" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="" />   
+                                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="pertencage" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="text" value="" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -552,7 +553,7 @@
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
-                                            <input id="rbNo" name="share_info" type="radio" value="False" />
+                                            <input id="rbNo" name="share_info" type="radio" checked=True value="False" />
                                             <label for="rbNo">No</label>
                                         </span>
                                         <label class="error-message" id="lblerrorGender"></label>
@@ -560,11 +561,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 pmtallocated">24. Correspondence Address:   <br> 
+                                <label class="col-sm-5 pmtallocated">24. Correspondence Address:   <br>
                                 </label>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 pmtallocated"> State    <br> 
+                                <label class="col-sm-5 pmtallocated"> State    <br>
                                 </label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt" style="padding-top: 10px;">
@@ -573,7 +574,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 pmtallocated"> District   <br> 
+                                <label class="col-sm-5 pmtallocated"> District   <br>
                                 </label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt" style="padding-top: 10px;">
@@ -582,10 +583,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 pmtallocated">25. Contact Details for other Nationals:    <br> 
+                                <label class="col-sm-5 pmtallocated">25. Contact Details for other Nationals:    <br>
                                 </label>
                                 <div class="col-sm-7 forfieldPlace nopadding">
-                                    
+
                                 </div>
                             </div>
                             <div class="row" >
@@ -612,7 +613,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt">
                                         <div class="forcalenderimg">
-                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="date_of_photo" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="date" value="" />   
+                                            <input class="form-control" id="DateOfBirth" maxlength="10" name="date_of_photo" onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)||(event.keyCode == 8)||(event.keyCode == 9)||(event.keyCode == 47)" type="date" value="" />
                                         </div>
                                     </div>
                                 </div>
@@ -623,7 +624,7 @@
                                 <div class="col-sm-7 forfieldPlace nopadding">
                                     <div class="formfieldCnt" style="padding-top: 13px; padding-left: 5px;">
                                         <span>
-                                            <input id="rbYes" name="date_mentioned_photo" type="radio" value="True" />
+                                            <input id="rbYes" name="date_mentioned_photo" checked=True type="radio" value="True" />
                                             <label for="rbYes">Yes</label>
                                         </span>
                                         <span>
@@ -649,10 +650,10 @@
                                <div class="form-group">
                                 <div class="col-sm-7 col-sm-offset-5 nopadding">
                                     <div class="sbmitandcancelBtns">
-                                        
+
                                         <input type="submit" value="Save" id="btnsubmit1" name="btnsubmit1" class="btn btn-primary" />
-                                        
-                                        
+
+
                                         <input type="button" value="Reset" id="btnPersonalReset" name="btnPersonalReset" class="btn btn-warning" />
                                         <input type="button" value="Close" id="btn-close" name="btn-close" class="btn btn-close">
                                     </div>
@@ -678,7 +679,7 @@
                     return false;
                 }
             }
-    
+
             function validateIdNumber(event) {
                 //////debugger;
                 if (event.charCode == 39) {
@@ -700,7 +701,7 @@
             }
         </script>
     </form>
-        
+
 
 
 
@@ -709,12 +710,28 @@
 
 $("#Serviceman1").click(function () {
     $("#Serviceman3").prop('disabled', '');
-    $("#Serviceman4").prop('disabled', '');  
+    $("#Serviceman4").prop('disabled', '');
 
 });
 $("#Serviceman2").click(function () {
     $("#Serviceman3").prop('disabled', 'disabled');
     $("#Serviceman4").prop('disabled', 'disabled');
+});
+
+$("#join1").click(function () {
+    $("#join_date").prop('disabled', '');
+});
+
+$("#join2").click(function () {
+    $("#join_date").prop('disabled', 'disabled');
+});
+
+$("#age1").click(function () {
+    $("#age3").prop('disabled', '');
+});
+
+$("#age2").click(function () {
+    $("#age3").prop('disabled', 'disabled');
 });
 
 $('#center1').change(function(e) {

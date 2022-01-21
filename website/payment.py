@@ -27,7 +27,7 @@ def payment_method(request, job_id):
     # print the long URL of the payment request.
     return redirect(response['payment_request']['longurl'])
     # print the unique ID(or payment request ID)
-    
+
 
 def payment_status(request, pid, aid):
     payment = PaymentMethod.objects.get(id=pid)
@@ -42,4 +42,3 @@ def payment_status(request, pid, aid):
         application.save()
         messages.success(request, 'your payment is successfully completed.')
     return redirect('candidate')
-    

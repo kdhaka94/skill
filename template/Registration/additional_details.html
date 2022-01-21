@@ -127,7 +127,7 @@
                             <label class="col-sm-5 pmtallocated" id="TypeofIDsupp">12. Nationality <sup>&#9733;</sup></label>
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
-                                <select class="form-control" id="Nationality" name="nationality"><option value="">--Select--</option>
+                                <select class="form-control" id="Nationality" name="nationality" required><option value="">--Select--</option>
                                     {% for k in country %}
                                         <option value="{{k.0}}" {% if k.0 == register.nationality %}selected {% endif %}>{{k.1}}</option>
                                     {% endfor %}
@@ -140,7 +140,7 @@
                             <label class="col-sm-5 pmtallocated" id="8rer">13. Identification Marks <sup>&#9733;</sup></label>
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
-                                    <textarea class="form-control text-uppercase" id="Ident_Mark" maxlength="20" name="indent_mark" onkeypress="return validateIdNumber(event);" type="text" value="{{register.indent_mark}}"  placeholder="NO MARKS">{{register.indent_mark}}</textarea>
+                                    <textarea class="form-control text-uppercase" id="Ident_Mark" maxlength="20" name="indent_mark" onkeypress="return validateIdNumber(event);" type="text" value="{{register.indent_mark}}"  placeholder="NO MARKS" required>{{register.indent_mark}}</textarea>
                                     
                                     
                                     <label class="error-message" id="lblIDnumber"></label>
@@ -154,12 +154,12 @@
                                 <div class="formfieldCnt" style="padding-top: 10px;">
                                     
                                     <span>
-                                    <input id="IsDisability1" name="is_disability" type="radio" value="True" {% if register.is_disability %}checked="True" {% endif %} required/>
+                                    <input id="IsDisability1" name="is_disability" type="radio" value=1 {% if register.is_disability %}checked="True" {% endif %} />
                                     <label for="IsDisability">Yes</label>
                                 </span>
                                 
                                 <span>
-                                    <input id="IsDisability2" name="is_disability" type="radio" value="False" {% if not register.is_disability %}checked="True" {% endif %} required/>
+                                    <input id="IsDisability2" name="is_disability" type="radio" value=0 {% if not register.is_disability %}checked="True" {% endif %}/>
                                     <label for="IsDisability">No</label>
                                 </span>
 
@@ -172,9 +172,11 @@
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
                                     
-                                    <select class="form-control" id="DisabilityType" name="type_disability" required><option value="">--Select--</option>
+                                    <select class="form-control" id="DisabilityType" name="type_disability" disabled><option selected>--Select Options--</option>
                                         {% for l in disability %}
+                                        {% if l.0 != 0 %}
                                         <option value="{{l.0}}" {% if l.0 == register.type_disability %}selected {% endif %}>{{l.1}}</option>
+                                        {% endif %}
                                         {% endfor %}
                                     </select>
                                    <p style="padding-top:10px;"><b>NOTE</b><br>
@@ -190,14 +192,14 @@
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
                                     
-                                    <input class="form-control text-uppercase" id="CertificateNum" maxlength="60" name="certificate_disability_num" onkeypress="return validNameForRegistration(event);" type="text" value="{{register.certificate_disability_num}}" required/>
+                                    <input class="form-control text-uppercase" id="CertificateNum" maxlength="60" name="certificate_disability_num" disabled onkeypress="return validNameForRegistration(event);" type="text" value="{{register.certificate_disability_num}}"/>
                                     <label class="error-message" id="lblNewName"></label>
                                 </div>
                             </div>
                         </div>
 
 						<div class="form-group">
-                            <label id="lblnewnamesupp" class="col-sm-5 pmtallocated">15a. Permanent Address</label>
+                            <label id="lblnewnamesupp" class="col-sm-5 pmtallocated">15a. Permanent Address <sup>&#9733;</sup></label>
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
                                     
@@ -208,7 +210,7 @@
                         </div>
 
 						<div class="form-group">
-                            <label id="lblnewnamesupp" class="col-sm-5 pmtallocated">15b. State/ UT </label>
+                            <label id="lblnewnamesupp" class="col-sm-5 pmtallocated">15b. State/ UT <sup>&#9733;</sup></label>
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
                                     
@@ -221,18 +223,19 @@
                             </div>
                         </div>
 						<div class="form-group">
-                            <label id="lblnewnamesupp" class="col-sm-5 pmtallocated">15C. District</label>
+                            <label id="lblnewnamesupp" class="col-sm-5 pmtallocated">15C. District <sup>&#9733;</sup></label>
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
                                     
                                     <select class="form-control" id="district" name="district" required>
+                                        <input type="hidden" value="{{register.district}}" id="status_value">
                                     </select>
-                                    <input type="hidden" value="{{register.district}}" id="status_value">
+                                    
                                 </div>
                             </div>
                         </div>
 						<div class="form-group">
-                            <label class="col-sm-5" id="lblAadharSupp">15d. PIN Code</label>
+                            <label class="col-sm-5" id="lblAadharSupp">15d. PIN Code <sup>&#9733;</sup></label>
                             <div class="col-sm-7 forfieldPlace nopadding">
                                 <div class="formfieldCnt">
                                     <input class="form-control" id="pin_code" maxlength="10" name="pin_code" required onkeypress="return (event.charCode == 8 || event.charCode == 9) || (event.charCode >= 48 &amp;&amp; event.charCode &lt;= 57)" type="text" value="{{register.pin_code}}" />
@@ -271,7 +274,7 @@
                                 <div class="sbmitandcancelBtns">
                                     
                                     <a href="{% if register %}/edit_register/{{request.user.registration_set.all.0.id}}/{% else %}{% url 'register' %}{% endif %}"><input type="button" value="Previous" name="btnsubmit1" class="btn btn-primary" /></a>
-                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                    <input onclick="check_validation()" type="submit" value="Save" class="btn btn-primary" />
 									<input type="button" value="Next" id="btnsubmit1" name="btnsubmit1" class="btn btn-primary" />
                                     
                                     
@@ -309,6 +312,11 @@
     </section>
     
 <script>
+
+function check_validation(){
+    return false;
+}
+
     $("#verifyCategory").click(function () {
 
 if($("#Category").val() != $("#verifyCategory").val()){
@@ -320,11 +328,15 @@ if($("#Category").val() != $("#verifyCategory").val()){
 });
 
 $("#IsDisability1").click(function () {
-                    $("#DisabilityType").prop('disabled', '');  
+                    $("#DisabilityType").prop('disabled', '');
+                    $("#CertificateNum").prop('disabled', '');
+                    
             });
             $("#IsDisability2").click(function () {
                     $("#DisabilityType").prop('disabled','disabled');
-                    $("#DisabilityType").val('');
+                    // $("#DisabilityType").val(0);
+                    $("#CertificateNum").prop('disabled','disabled');
+                    $("#CertificateNum").val('');
             });
 
 $("#Category").click(function () {
@@ -369,6 +381,11 @@ $('#State').change(function(e) {
 });
 
 $(document).ready(function(e) {
+        $("#DisabilityType").prop('required', 'required');
+        $("#CertificateNum").prop('required', 'required');
+})
+
+$(document).ready(function(e) {
     var state = $("#State").val();
     var status_value = $("#status_value").val();
     myselect =  $('#district');
@@ -378,7 +395,7 @@ $(document).ready(function(e) {
 
                            {
                            myselect.empty();
-                           myselect.append("<option value='0' selected='selected'>--Select District--</option>");
+                           myselect.append("<option selected='selected'>--Select District--</option>");
                            for(i=0;i<data.length;i++)
                             {
                             if(data[i] == status_value)

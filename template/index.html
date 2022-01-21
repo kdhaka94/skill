@@ -3,16 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Home | Skill India NSDC India</title>
-    <meta name="description" content="This is Official Website of Staff Selection Commission.">
-    <meta name="keywords"
-        content="SSC, CGL, GD constable, CAPFS and DP, Stenographers, JE, CPO, CHSL, Scientific Assistant">
+    <title>Skill India NSDC India</title>
+    <meta name="description" content="This is official website of edu-nsdcindia.">
+    <meta name="keywords" content="edu, india, edu-nsdcindia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="icon/png" href="{% static 'images/5.png' %}">
@@ -39,6 +34,7 @@
 
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -181,36 +177,27 @@
             </ul>
         </div>
         <!-- </header> -->
-        <header class="topMenuBar">
+<header class="topMenuBar">
             <div class="container">
                 <div class="row">
                     <div class="topmenupart">
                         <nav class="menulist">
-                            <ul>
-                                <li><a tabindex="1" style="font-size: 15px;"
-                                        href="{% url 'feedback' %}"><b>Feedback</b></a></li>
-                            </ul>
+                            <!--<ul>-->
+                            <!--    <li><a tabindex="1" style="font-size: 15px;"-->
+                            <!--            href="{% url 'feedback' %}"><b>Feedback</b></a></li>-->
+                            <!--</ul>-->
 
                             <!-- <div title="Select Language" class="langchangeDpdn pull-right">
                             <select tabindex="5" class="Language">
                                 <option value="1" selected>English</option>
                                 <option value="2">हिंदी</option>
                             </select>
-                        </div> 
+                        </div>
                         <div class="forzoominoutFonts pull-right">
                             <a title="Increase font size" class="incFont">+A</a>
                             <a title="Reset font size" class="curFont">A</a>
                             <a title="Decrease font size" class="decFont">-A</a>
                         </div> -->
-                            <div title="Site Search" id="divSiteSearch" class="tipue_search_right pull-right">
-                                <form action=https://ssc.nic.in/Portal/Search>
-                                    <input tabindex="3" type="text" name="search_query" id="tipue_search_input"
-                                        pattern=".{3,}" title="At least 3 characters" required placeholder="Search" />
-                                    <button tabindex="4" style="background-color: #4572d4;" id="btnSiteSearch"><i
-                                            title="Site Search" class="fa fa-search" style="color: white;"
-                                            aria-hidden="true"></i></button>
-                                </form>
-                            </div>
                             <div class="skpmCntSec pull-right">
                                 <a tabindex="2" class="skpmnt" data-scroll="#bdyCntpart">Skip to Main Content</a>
                             </div>
@@ -374,9 +361,6 @@
         {% block body %}
         {% endblock %}
 
-
-
-
         <div class="footerpart">
             <footer class="footerparttop">
                 <div class="container">
@@ -385,7 +369,7 @@
                             <div class="col-sm-12 col-md-12 text-center">
                                 <div class="footerTitle">
                                     <h5>SKILL INDIA NSDC INDIA</h5>
-                                    <p>Jaipur, Rajasthan-302020</p>
+                                    <p>101, Rashtriya Vidyalaya Rd, D Block, Basavanagudi, Bengaluru, Karnataka 560004</p>
                                 </div>
                             </div>
                         </div>
@@ -396,9 +380,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="copyrightsSection">
-                            <div class="col-sm-6 text-center">
+                            <div class="col-sm-3 text-center">
                                 <div class="cpyrightTxt">
-                                    <p>&copy; 2021 Skill India NSDC India. All Rights Reserved.</p>
+                                    <p>&copy; 2017 Skill India NSDC India. All Rights Reserved.</p>
                                 </div>
                             </div>
                             <!--     <div class="col-sm-4">
@@ -407,16 +391,21 @@
                         </div>
                     </div> -->
 
-                            <div class="col-sm-6">
-                                <div class="termsandconditionLinks text-right">
+                            <div class="col-sm-9">
+                                <div class="termsandconditionLinks text-center">
                                     <ul>
                                         <li class="active"><a href="{% url 'home' %}"> Home </a> </li>
+                                        <li class="active"><a href="{% url 'about-us' %}"> AboutUs </a> </li>
                                         <li><a href="{% url 'notice' %}" class="linkActionNotices"> Notices</a></li>
                                         <li><a href="{% url 'apply' %}"> Apply</a></li>
                                         <li><a href="{% url 'admit' %}">Admit Card</a></li>
                                         <li><a href="{% url 'answer' %}" class="linkActionAnswerKey"> Answer key</a>
                                         </li>
                                         <li><a href="{% url 'result' %}" class="linkActionResults"> Result</a></li>
+                                        <li class="active"><a href="{% url 'contact-us' %}"> ContactUs </a> </li>
+                                        <li><a href="{% url 'privacy' %}" class="linkActionResults"> Privacy Policy</a></li>
+                                        <li><a href="{% url 'terms&policy' %}" class="linkActionResults"> Terms & Conditions</a></li>
+                                        <li><a href="{% url 'refund-policy' %}" class="linkActionResults"> Refund Policy</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -426,15 +415,7 @@
             </footer>
         </div>
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122939704-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
 
-            gtag('config', 'UA-122939704-1');
-        </script>
 
 
         <!---------javaScript-->
@@ -621,7 +602,7 @@
                 })
             })
         </script>
-         
+
 
 </body>
 

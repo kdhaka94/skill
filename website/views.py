@@ -39,7 +39,7 @@ def match_otp(request):
         if store.otp == otp:
             register.verify_email =  True
             register.save()
-            messages.success(request, 'Email Verification Complete! Please complete your registration within 14 days otherwise your registration automatically deleted..')
+            messages.success(request, 'Email Verification Complete! Registration ID and Password has been sent on your e-mail address.')
             send_email(register.user.username, store.pass_word, register.email_id)
             return redirect('home')
 
@@ -59,7 +59,7 @@ def forgetpassword(request):
         original = True
         u = new_user.username
     return render(request, template_name, {'original':original, 'forget':forget, 'u':u})
-    
+
 
 def register(request, pid=None):
     register = None
@@ -98,7 +98,7 @@ def register(request, pid=None):
                     if addition:
                         return redirect('edit_additional', addition.id)
                     else:
-                        return redirect('addition_details')  
+                        return redirect('addition_details')
             else:
                 print(form.errors)
         else:
@@ -116,6 +116,14 @@ def additionDetails(request,pid=None):
         form = AdditionalDetailForm(request.POST, instance=register)
         if form.is_valid():
             new_data = form.save()
+            if request.POST['is_disability'] == "1":
+                new_data.type_disability = request.POST['type_disability']
+                new_data.certificate_disability_num = request.POST['certificate_disability_num']
+                new_data.is_disability = True
+            else:
+                new_data.type_disability = 0
+                new_data.certificate_disability_num = None
+                new_data.is_disability = False
             new_data.user = request.user
             new_data.save()
             messages.success(request, 'Additional Detail added Successfully')
@@ -131,7 +139,7 @@ def AgreeCondition(request):
     register = None
     try:
         register = AdditionDetail.objects.get(user = request.user)
-        
+
     except:
         error = True
     if request.method == "POST":
@@ -203,13 +211,13 @@ def answer_key(request):
 def apply(request):
     job = JobCategory.objects.all()
     job_set = Job.objects.all()
-    template_name = 'template/hi/Portal/apply.html'
+    template_name = 'template/hi/Portal/Apply.html'
     return render(request, template_name, {'job':job, 'job_set':job_set})
 
 def results(request):
     result = NoticeHeading.objects.all()
     result_exam = Result.objects.all()
-    template_name = 'template/hi/Portal/results.html'
+    template_name = 'template/hi/Portal/Results.html'
     return render(request, template_name, {'result':result, 'result_exam':result_exam})
 
 def feedback(request):
@@ -236,7 +244,9 @@ def application_form(request, job_id, pid=None):
         if form.is_valid():
             new_data = form.save()
             new_data.user = request.user
+            new_data.job.user = request.user
             new_data.save()
+            new_data.job.save()
             messages.success(request, 'Your Application Form Successfully Submitted..!')
             return redirect('payment_request',job_id)
         else:
@@ -376,3 +386,23 @@ def available_application(request):
     application = Application.objects.filter(status = 'Available')
     template_name = 'template/Admin_Portal/available_application.html'
     return render(request, template_name, {'application':application})
+
+def web_privacy(request):
+    template_name = 'template/hi/Portal/privacy.html'
+    return render(request, template_name)
+
+def web_terms(request):
+    template_name = 'template/hi/Portal/website_tos.html'
+    return render(request, template_name)
+
+def about_us(request):
+    template_name = 'template/hi/Portal/about.html'
+    return render(request, template_name)
+
+def contact_us(request):
+    template_name = 'template/hi/Portal/contact.html'
+    return render(request, template_name)
+
+def refund_policy(request):
+    template_name = 'template/hi/Portal/RefundPolicy.html'
+    return render(request, template_name)

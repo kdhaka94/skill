@@ -1,11 +1,54 @@
 {% extends 'template/index.html' %}
 {% block body %}
 {% load static %}
-<head>
-  <!--  <link rel="preconnect" href="https://cbpssubscriber.mygov.in/assets/uploads/89vQkZbZihu8Szgn">
-    <link rel="dns-prefetch" href="https://cbpssubscriber.mygov.in/assets/uploads/89vQkZbZihu8Szgn"> -->
-    </head>
-    
+
+    <style>
+#ourclients {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background:#ffffff;
+  padding-bottom:30px;
+  height:150px;
+}
+#ourclients .clients-wrap {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#ourclients .clients-wrap ul {
+  display: block;
+  list-style: none;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+#ourclients .clients-wrap ul li {
+  display: block;
+  float: left;
+  position: relative;
+  width: 220px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+#ourclients .clients-wrap ul li img {
+  vertical-align: middle;
+  max-width: 100%;
+  width:150px;
+  max-height: 100%;
+  -webkit-transition: 0 linear left;
+  -moz-transition: 0 linear left;
+  transition: 0 linear left;
+}
+#ourclients h3{
+border-bottom:2px solid #3399ff;
+width:150px;
+padding:10px;
+}
+</style>
+
     <div id="overlay" style="display:none">
         <img src="{% static 'images/loading.gif' %}" alt="Loading" />
     </div>
@@ -20,9 +63,9 @@
                     </div>  -->
                     <div class="col-md-3 col-sm-3">
                         <div class="rightsideSection">
-    
-    
-    
+
+
+
     <form action="{% url 'login_user' %}" method="post">
         {% csrf_token %}
         <input name="__RequestVerificationToken" type="hidden" value="Oq0sZ1czOpMkp7FnUok_S8N0KTH8tKHB5Rh6MTkkiXwS45xTpwmdXy-EdfwMCLWu0MAS3u2DTtMFyqgcmGs2cxxkflYxi-fT9wluZYihxoQ1" />    <div class="candidateApplyLogin" style="word-wrap: break-word;">
@@ -43,21 +86,21 @@
                     <input type="submit" class="btn btn-primary" value="Login">
                 </div>
                 <div class="clearfix" id="clearfixBeforLoginValidationMsg"></div>
-    
+
                 <div class="clearfix"></div>
                 <div class="form-group">
                     <div class="regisandforgotPass">
                         <p><a href="#" class="frgtpasswrd" id="frgtpasswrd" data-backdrop="static" data-toggle="modal" data-target="#forGotPasspopUp">Forgot Password</a></p>
                         <p><a href="{% if request.user.id %}{% url 'edit_register' request.user.registration_set.all.0.id %}{% else %}{% url 'register' %}{% endif %}" class="signupLink" id="signUpLink">New User ? Register Now</a></p>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
             {% else %}
             <div class="currentEventsCalendar">
                 <div>
-                    
+
                     <div style="padding: 8px;">
                         User Logged in as:{{request.user.registration_set.all.0.name}}
                         <br>
@@ -68,17 +111,17 @@
 
             </div>
 
-            
+
         </div>
             {% endif %}
-            
+
         </div>
     </form>
     <input data-val="true" data-val-required="Please enter UserName" id="UserName" name="UserName" type="hidden" value="" />
     <!-- Modal -->
     <div class="modal fade " id="unlockPopup" role="dialog">
         <div class="modal-dialog ">
-    
+
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -91,7 +134,7 @@
                             <form role="form">
                                 <div class="form-group">
                                     <p id="pOTPTenMinsValid" style="display:none;"><b style="color:red">An OTP has already been generated.Please use the same OTP or wait for 10 minutes to generate a new OTP.</b></p>
-    
+
                                     <label class="col-sm-3"><b style="color:red">Username (Registration Number)</b></label><br />
                                     <div class="col-sm-6">
                                         <input class="form-control" id="txtUAUsername" name="UserName" type="text" value="" />
@@ -108,10 +151,10 @@
                                         <label class="col-sm-3">OR</label>
                                     </div>
                                     <div class="form-group"><label class="col-sm-3">Email OTP  </label> <div class="col-sm-6"><input class="form-control" id="txtEmailOTP" maxlength="4" name="EmailOTP" onKeyDown="if(this.value.length==4 &amp;&amp; event.keyCode>47 &amp;&amp; event.keyCode &lt; 58) return false;" type="number" value="" /></div></div>
-    
-                                    
-                                    
-                                    
+
+
+
+
                                     <div class="form-group">
                                         <div style="margin-top: 10px;" class="row">
                                             <div id="divCaptcha1" class="col-sm-3" style=" padding-right 0px; padding-top:5px">
@@ -149,8 +192,8 @@
                                         </div>
                                             <samp class="id"></samp>
                                     </div>
-                                    
-    
+
+
                                     <div class="col-sm-offset-3 col-sm-6">
                                         <div class="sbmitandcancelBtns">
                                             <button class="btn btn-sm btn-primary" id="btnUAFSubmit" type="button" disabled="disabled">Submit</button>
@@ -168,26 +211,26 @@
             </div>
         </div>
     </div>
-    
-    
-    
+
+
+
     <script type="text/javascript">
         $(document).ready(function () {
-    
-    
+
+
             $('input').removeAttr("autocorrect");
             $('#CaptchaInputText').on('keydown', function (e) {
                 var codes = { 9: 'TAB' };
                 if (e.shiftKey && e.keyCode in codes)$('#txtPassword').focus();
             });
             $('#CaptchaImage').attr("alt", "Captcha Image");
-    
+
             $('#UAAlert').attr("style", "display:none")
             $('.captchaSection #CaptchaInputText').attr("maxlength", 5);
             $('.captchaSection #CaptchaInputText').removeAttr("autocorrect");
             $('#txtEmailOTP').attr("maxlength", 4);
             $('#txtEmailOTP').attr("maxlength", 4);
-    
+
             $('.captchaSection #CaptchaInputText').keydown(function (e) {
                 if (e.ctrlKey || e.altKey) {
                     e.preventDefault();
@@ -198,7 +241,7 @@
                     }
                 }
             });
-    
+
             $('#txtUsername').keydown(function (event) {
                 /// Portion of code to manually tab over different element
                 ////Implementation........
@@ -214,62 +257,62 @@
                     }
                 }
             })
-    
+
             $('#txtUsername').bind('input propertychange', function (event) {
                 var a = $('#txtUsername').val().replace(/\s/g, "").length;
                 var b = $('#txtPassword').val().replace(/\s/g, "").length;
-    
+
                 ///*Commented for STQC
                 var c = $('#txtCaptcha').val().replace(/\s/g, "").length;
                 if (a != 0 & b != 0 & c == 5) {
                     $("#btnSubmit").removeAttr('disabled', 'disabled');
                 }
-    
+
                 if (a == 0 | b == 0 | c < 5) { $("#btnSubmit").attr('disabled', 'disabled'); }
-    
+
             });
-    
+
             $('#txtPassword').bind('input propertychange', function () {
-    
+
                 var a = $('#txtUsername').val().replace(/\s/g, "").length;
                 var b = $('#txtPassword').val().replace(/\s/g, "").length;
-    
+
                 ///*Commented for STQC
                 var c = $('#txtCaptcha').val().replace(/\s/g, "").length;
                 if (a != 0 & b != 0 & c == 5) {
                     $("#btnSubmit").removeAttr('disabled', 'disabled');
                 }
-    
+
                 if (a == 0 | b == 0 | c < 5) { $("#btnSubmit").attr('disabled', 'disabled'); }
             });
-    
+
             $('#txtCaptcha').bind('input propertychange', function () {
-    
+
                 var a = $('#txtUsername').val().replace(/\s/g, "").length;
                 var b = $('#txtPassword').val().replace(/\s/g, "").length;
-    
+
                 ///*Commented for STQC
                 var c = $('#txtCaptcha').val().replace(/\s/g, "").length;
                 if (a != 0 & b != 0 & c == 5) {
                     $("#btnSubmit").removeAttr('disabled', 'disabled');
                 }
-    
+
                 if (a == 0 | b == 0 | c < 5) { $("#btnSubmit").attr('disabled', 'disabled'); }
             });
-    
+
             $('#txtUAUsername').bind('input propertychange', function () {
                 var a = $('#txtUAUsername').val().length;
                 if (a != 0) { $("#btnUASubmit").removeAttr('disabled', 'disabled'); }
                 if (a == 0) { $("#btnUASubmit").attr('disabled', 'disabled'); }
             });
-    
+
             $('#txtEmailOTP').bind('input propertychange', function () {
                 var a = $('#txtEmailOTP').val().length;
                 var b = $('#txtMobileOTP').val().length;
                 if (a != 0 || b != 0) { $('#btnUAFSubmit').removeAttr('disabled', 'disabled'); }
                 if (a == 0 && b == 0) { $('#btnUAFSubmit').attr('disabled', 'disabled'); }
             });
-    
+
             $('#txtMobileOTP').bind('input propertychange', function () {
                 var a = $('#txtEmailOTP').val().length;
                 var b = $('#txtMobileOTP').val().length;
@@ -293,11 +336,11 @@
             $('#btnUAFSubmit').click(function (e) {
                 //debugger;
                 e.preventDefault();
-    
+
                 var eotp = $('#txtEmailOTP').val();
                 var motp = $('#txtMobileOTP').val();
                 var captcha = $.trim($('#txtCaptcha1').val());
-    
+
                 if ($.trim($('#txtEmailOTP').val()) == "" && $.trim($('#txtMobileOTP').val()) == "") {
                     $('#UAAlert').html('<p style="color:red"><b>Please enter otp sent on your mobile or email id.!!</b></p>');
                     $('#UAAlert').removeAttr("style", "display:none");
@@ -313,19 +356,19 @@
                     $('#UAAlert').removeAttr("style", "display:none");
                     return false;
                 }
-    
-                    
-                    
-                    
+
+
+
+
                 else if ($.trim($('#txtCaptcha1').val()) == "" && $.trim($('#txtCaptcha1').val()).length != 5) {
                     $('#UAAlert').html('<p style="color:red"><b>Please enter a valid Captcha!!</b></p>');
                     $('#UAAlert').removeAttr("style", "display:none");
                     return false;
                 }
-                
-    
+
+
                 $('#overlay').show();
-    
+
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/json;charset=utf-8',
@@ -334,20 +377,20 @@
                     success: function (response) {
                         $('#overlay').hide();
                         if (response == "true") {
-    
-    
+
+
                             $('#btnUAFSubmit').attr('style', 'display:none');
                             $('#btnReset').attr('style', 'display:none');
-    
+
                             $('#UAAlert').html('<p style="color:green"><b>Your account is unlocked successfully.!!</b><br /><button class="btn-success" id="btnClose" type="button" data-dismiss="modal">Ok</button></p>');
-    
+
                             $('#UAAlert').removeAttr("style", "display:none");
-    
+
                         }
                         else {
                             if ($.trim(response).includes("~")) {
                                 var otpinvalidmessage = $.trim(response).split("~");
-    
+
                                 $.ajax({
                                     type: 'POST',
                                     url: '/Login/GenerateOTP',
@@ -401,7 +444,7 @@
                 });
             });
             $('#btnUASubmit').click(function () {
-    
+
                 $('#overlay').show();
                 $.ajax({
                     type: 'POST',
@@ -444,33 +487,33 @@
                 $('#txtUAUsername').removeAttr('disabled', 'disabled');
                 $('#divOTP').hide();
             });
-    
+
             $('.closeUnlockM').click(function () {
                 $('#unlockPopupM').hide();
             });
-    
+
             $('#btnUnlockButton').click(function () {
                 $('#unlockPopupM').hide();
             });
-    
+
             $('#btnReset').click(function () {
                 $('#txtEmailOTP').val("");
                 $('#txtMobileOTP').val("");
                 $('#CaptchaInputText').val("");
                 $("#UAAlert").hide();
             });
-    
+
             $("#txtUsername").blur(function () {
-    
+
                 $("#divLoginValidationMssg").html("");
-    
+
                 var thisVal = $.trim($(this).val());
                 var isValNum = $.isNumeric(thisVal);
                 var isValidMail = false;
                 var regNoValInt=0;
-    
+
                 var emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    
+
                 if (emailRegExp.test(thisVal) == true) {
                     isValidMail = true;
                 }
@@ -478,14 +521,14 @@
                     isValidMail = false;
                 }
                 var isInValidRange = false;
-    
+
                 var validRange = thisVal.substr(0, 2);
                 var validRangeNew = thisVal.substr(0, 1);
-    
+
                 if(isValNum==true){
                     regNoValInt = parseInt(thisVal);
                 }
-    
+
                 if (isValNum && thisVal.length == 11) {
                     var intRange = parseInt(validRange);
                     var intRangeNew = parseInt(validRangeNew);
@@ -496,7 +539,7 @@
                         isInValidRange = false;
                     }
                 }
-    
+
                 if ((isValNum == true && thisVal.length != 11 && thisVal.length != 6) || (isValNum == false && isValidMail == false) ||
                     (thisVal.length == 11 && isValNum == true && isInValidRange == false) || (isValNum == true && regNoValInt <= 0)) {
                     if ($("#divLoginValidationMssg").length > 0) {
@@ -508,77 +551,77 @@
                     $(this).val("");
                 }
             });
-    
+
             $("#txtMobileOTP").keypress(function () {
                 $("#UAAlert").hide();
                 if ($.trim($(this).val()).length >= 4) {
                     return false;
                 }
             });
-    
+
             $("#txtEmailOTP").keypress(function () {
                 $("#UAAlert").hide();
                 if ($.trim($(this).val()).length >= 4) {
                     return false;
                 }
             });
-    
+
             $('#CaptchaInputText').blur(function () {
-    
+
                 if (this.value != null && this.value.length != 5)
                     $('#lblErrorCaptcha').text('Please fill a valid captcha.');
                 else
                     $('#lblErrorCaptcha').text('');
-    
+
             });
         });
     </script>
-    
+
                         </div>
-                        <div class="currentEventsCalendar">
-    
-                            <h4 class="text-center" style="background-color: #4572d4;">Calendar</h4>
-                            <div class="currentEventsCalendarList_New scrollbar" id="forScrollCalendar">
-                                
-                                <div class="eachCurrentEvent">
-    
-                                    <!-- == Edited on 14-03-2018 : Added file info == -->
-                                    <p class="English">
-                                        Examination Calender
-                                            <img class="file-icon" alt="pdficon" title="pdf document. opens in new tab" src="{% static 'images/icons/pdficon.png' %}" />
-                                            <small style="font-family:Calibri;">
-                                                (29.50 KB)
-                                            </small>
-    
-                                        <a href="SSCFileServer/PortalManagement/UploadedFiles/calender2019_25012019.html" target="_blank"><b>Click Here</b></a>
-                                    </p>
-                                </div>
-    
-                        </div>
-    
-                        
-                    </div>
-                    
+                    <!--    <div class="currentEventsCalendar">-->
+
+                    <!--        <h4 class="text-center" style="background-color: #4572d4;">Calendar</h4>-->
+                    <!--        <div class="currentEventsCalendarList_New scrollbar" id="forScrollCalendar">-->
+
+                    <!--            <div class="eachCurrentEvent">-->
+
+                                     <!--== Edited on 14-03-2018 : Added file info ==-->
+                    <!--                <p class="English">-->
+                    <!--                    Examination Calender-->
+                    <!--                        <img class="file-icon" alt="pdficon" title="pdf document. opens in new tab" src="{% static 'images/icons/pdficon.png' %}" />-->
+                    <!--                        <small style="font-family:Calibri;">-->
+                    <!--                            (29.50 KB)-->
+                    <!--                        </small>-->
+
+                    <!--                    <a href="{% url 'notice' %}" target="_blank"><b>Click Here</b></a>-->
+                    <!--                </p>-->
+                    <!--            </div>-->
+
+                    <!--    </div>-->
+
+
+                    <!--</div>-->
+
                     <div class="currentEventsCalendar" style="text-align:center;">
-                <a href="https://cbpssubscriber.mygov.in/aff/ddAca4lVen8MKVeZ" target="_blank" title="External site that opens in a new window" rel="noopener noreferrer"><img class="lazy" src="{% static 'images/covid.jfif' %}" alt="new cdps image." style="height:300px;width:300px;"></a>
-                        
+                <a href="https://edu-nsdcindia.org" target="_blank" title="External site that opens in a new window" rel="noopener noreferrer"><img class="lazy" src="{% static 'images/cov.jpg' %}" alt="new cdps image." style="height:300px;width:300px;"></a>
+
                     </div>
-                    
-                    </div> 
-    
-                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-6" style="margin-bottom:50px;">
                         <div class="leftsideNotifications_New">
                             <h3 class="text-center" style="background-color: #4572d4;">Latest News</h3>
                             <div class="scrollingNotifications_New scrollbar" id="forScrollNews">
                                 <ul>
                                     {% for i in notification %}
                                         <li>
-                                            
+
                                             <div class="eachNotification">
-                                                
+
                                                 <span>{{ i.not_date|date }}</span>
-    
-    
+
+
                                                 <!-- ==Edited on 13-06-2021 : Added file info== -->
                                                 <p class="English">
                                                     {% if i.not_icon %}
@@ -592,59 +635,59 @@
                                                                 ({{ i.get_size }} KB)
                                                             </small>
                                                 </p>
-                                                
+
                                             </div>
-                                            
+
                                         </li>
                                         {% endfor %}
                                 </ul>
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-md-3 col-sm-3 ">
-                        <div style="background: #036800;">
+                        <div style="background: white;">
                             <div>
-                                <div style="width: 160px !important;margin: 10px auto 5px auto;"><img src="{% static 'images/aa.jpg' %}" alt="Gandhi"></div>
+                                <div style="width: 260px !important;margin: 10px auto 5px auto;"><img src="{% static 'images/mahatma.jpg' %}" alt="Gandhi"></div>
                                 <div class="gandhiTxt">
-                                    <p style="text-align: center; color: white;"><b>“Live as if you were to die tomorrow. Learn as if you were to live forever.”</b></p>
-                                    <h4 style="color: white;">- Mahatma Gandhi</h4>
+                                    <p style="text-align: center;"><b>“Live as if you were to die tomorrow. Learn as if you were to live forever.”</b></p>
+                                    <h4>- Mahatma Gandhi</h4>
                                 </div>
                             </div>
                         </div>
                         <div class="currentEvents_New ">
-                            
+
                             <div style="text-align:center">
                                 <a href="#" target="_blank" title="External site that opens in a new window" rel="noopener noreferrer"><img src="{% static 'images/Mahatma_Gandhi.jpg' %}" alt="150 years of celebrating Mahatma."></a>
                 </div> <hr>
                 <div style="text-align:center;padding-top: 20%;">
                                 <a href="#" target="_blank" title="External site that opens in a new window" rel="noopener noreferrer"><img src="{% static 'images/logo-slider6.png' %}" alt="National Career Service."></a>
                             </div>
-    
+
                         </div>
                     </div>
-    
-    
+
+
                 </div>
             </div>
         </div>
         <div class="clearfix"></div>
-    
+
         <div id="forGotPasspopUp" class="modal fade" role="dialog">
             <div class="modal-dialog">
-    
+
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="forgotClose close" data-toggle="modal" data-target="#forGotPasspopUp">&times;</button>
                     </div>
                     <div class="modal-body">
-    
+
     <script type="text/javascript">
         $(document).ready(function () {
-    
-            
-    
+
+
+
             $('#CaptchaInputText').attr("maxlength", 5);
             $('#CaptchaInputText').keydown(function (e) {
                 if (e.ctrlKey || e.altKey) {
@@ -661,14 +704,14 @@
                 var Evalue = $('#txtEmailid').val().replace(/\s/g, "").length;
                 var Mvalue = $('#txtMobile').val().replace(/\s/g, "").length;
                 var State = $('#OriginState').val();
-    
+
                 if (Evalue != 0 || Mvalue != 0) {
                     $("#btnsubmit").removeAttr('disabled', 'disabled');
                 }
                 if (Evalue == 0 && Mvalue == 0) {
                     $("#btnsubmit").attr('disabled', 'disabled');
                 }
-    
+
                 if (State == "") {
                     $("#btnsubmit").attr('disabled', 'disabled');
                 } else {
@@ -683,14 +726,14 @@
                 var Evalue = $('#txtEmailid').val().replace(/\s/g, "").length;
                 var Mvalue = $('#txtMobile').val().replace(/\s/g, "").length;
                 var State = $('#OriginState').val();
-    
+
                 if (Evalue != 0 || (Mvalue <= 12 && Mvalue >= 10)) {
                     $("#btnsubmit").removeAttr('disabled', 'disabled');
                 }
                 if (Evalue == 0 && (Mvalue == 0 || Mvalue > 12 || Mvalue < 10)) {
                     $("#btnsubmit").attr('disabled', 'disabled');
                 }
-    
+
                 if (State == "") {
                     $("#btnsubmit").attr('disabled', 'disabled');
                 } else {
@@ -701,12 +744,12 @@
                     }
                 }
             });
-    
+
             $('#OriginState').bind('input propertychange', function () {
                 var Evalue = $('#txtEmailid').val().replace(/\s/g, "").length;
                 var Mvalue = $('#txtMobile').val().replace(/\s/g, "").length;
                 var State = $('#OriginState').val();
-    
+
                 if (State == "") {
                     $("#btnsubmit").attr('disabled', 'disabled');
                 } else {
@@ -717,7 +760,7 @@
                     }
                 }
             });
-    
+
             $('#txtMobile').keypress(function () {
                 $("#error_message").html("");
                 $(this).attr("maxlength", "10");
@@ -726,11 +769,11 @@
                     return false;
                 }
             });
-    
+
             $('#txtEmailid').keypress(function () {
                 $("#error_message").html("");
             });
-    
+
             $("#btnsubmit").click(function () {
                 $('#overlay').show();
                 //debugger;
@@ -801,7 +844,7 @@
                             window.location.href = 'ApplicantForgot/PopulateAFchangepassword9bc5.html?message=An%20OTP%20has%20already%20been%20generated.Please%20use%20the%20same%20OTP%20or%20wait%20for%2010%20minutes%20to%20generate%20a%20new%20OTP.';
                             $('#error_message').html("");
                         }
-    
+
                     },
                     error: function () {
                         $('#overlay').hide();
@@ -809,7 +852,7 @@
                     }
                 });
             });
-    
+
             $("#btnsubmitotp").click(function () {
                 $('#overlay').show();
                 debugger;
@@ -840,7 +883,7 @@
                             $('#error_messageotp').html("Please enter valid OTPs");
                             $('#error_messageotp').show();
                         }
-    
+
                     },
                     error: function () {
                         $('#overlay').hide();
@@ -848,7 +891,7 @@
                     }
                 });
             });
-    
+
             $("#txtFMobOTP").bind('input propertychange', function () {
                 debugger;
                 var value1 = $("#txtFMobOTP").val().replace(/\s/g, "");
@@ -885,12 +928,12 @@
                     $("#btnsubmitotp").attr("disabled", "disabled");
                 }
             });
-    
+
         });
-    
-    
+
+
     </script>
-    
+
                     <div class="col-sm-offset-1 col-sm-10">
                         <div class="vertical-center forgtPopUpCnt">
                             <div class="login-page forgtPopUpText">
@@ -910,50 +953,93 @@
                                             <div id="error_message" class="error">
                                             </div>
                                         </form>
-    
+
                                         <div class="clearfix"></div>
-    
-    
+
+
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-    
+
                             </div>
-    
-                            
-    
+
+
+
                         </div>
                     </div>
                     <div class="clearfix"></div>
-               
-    
+
+
                     </div>
                 </div>
-    
+
             </div>
         </div>
 
 
-        <div class="logoSliderpart">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="logoCaurosel owl-carousel" id="logoCaurosel">
-                            {% for k in footer_img %}
-                            <div class="item">
-                                <a href="https://incredibleindia.org/" target="_blank" title="External site that opens in a new window" rel="noopener noreferrer"><img src="{{k.img}}" alt="{{k.img_alt}}"></a>
-                            </div>
-                            {% endfor %}
-    
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-    
-                </div>
-            </div>
-        </div>
+        <div id="ourclients">
+  <div class="clients-wrap">
+    <ul id="clientlogo" class="clearfix">
+      <li>
+        <img src="{% static 'images/cipla.jpg' %}" alt="Logo">
+      </li>
+      <li>
+        <img src="{% static 'images/Reliance-Jio.png' %}" alt="Logo">
+      </li>
+      <li>
+        <img src="{% static 'images/power.jpg' %}" alt="Logo">
+      </li>
+      <li>
+        <img src="{% static 'images/zydus.jpg' %}" alt="Logo">
+      </li>
+      <li>
+        <img src="{% static 'images/bses.jpg' %}" alt="Logo" hspace='100' >
+      </li>
+      <li>
+        <img src="{% static 'images/adani.png' %}" alt="Logo" hspace='100'>
+      </li>
+     <li>
+         <img src="{% static 'images/amul.png' %}" alt="Logo" hspace='100'>
+     </li>
+     <li>
+         <img src="{% static 'images/saras.jpg' %}" alt="Logo" hspace='100'>
+     </li>
+    </ul>
+  </div>
+</div>
     </section>
-
+<script>
+$(function() {
+  var $clientslider = $('#clientlogo');
+  var clients = $clientslider.children().length;
+  var clientwidth = (clients * 220);
+  $clientslider.css('width', clientwidth);
+  var rotating = true;
+  var clientspeed = 1800;
+  var seeclients = setInterval(rotateClients, clientspeed);
+  $(document).on({
+    mouseenter: function() {
+      rotating = false;
+    },
+    mouseleave: function() {
+      rotating = true;
+    }
+  }, '#ourclients');
+  function rotateClients() {
+    if (rotating != false) {
+      var $first = $('#clientlogo li:first');
+      $first.animate({
+        'margin-left': '-220px'
+      }, 2000, function() {
+        $first.remove().css({
+          'margin-left': '0px'
+        });
+        $('#clientlogo li:last').after($first);
+      });
+    }
+  }
+});
+</script>
 
     <div class="{% if original %}modal fade in sucMsgPopRHQ{% else %}hidden{% endif %}" id="confirmMobile" role="dialog">
         <div class="modal-dialog">
@@ -999,6 +1085,7 @@
                         <label class="col-sm-5" id="lblConfrmMail"></label>
                     </div>
                 </div>
+                <p>Password must be contains 1 Special character, 1 Numeric character, and 1 Capital letter.</p>
                 <div class="modal-footer">
                     <div class="sbmitandcancelBtns">
                         <button type="submit" class="btn btn-rhqDelete" data-dismiss="modal" id="btnconfrmMobile"> Confirm</button>
@@ -1011,7 +1098,7 @@
     </div>
 
     <script type="text/javascript" src="{% static 'js/jquery.lazy.min.js' %}"></script>
-    
+
     <script>
         $(document).ready(function () {
             $('#owlCaurosel').owlCarousel({

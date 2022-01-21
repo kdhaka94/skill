@@ -11,7 +11,7 @@ class Registration_User(forms.ModelForm):
 class AdditionalDetailForm(forms.ModelForm):
     class Meta:
         model = AdditionDetail
-        exclude = ('user',)
+        exclude = ('user', 'is_disability', 'type_disability', 'certificate_disability_num',)
 
 class ApplicationForm(forms.ModelForm):
     class Meta:

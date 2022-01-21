@@ -5,13 +5,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Answer Key | Staff Selection Commission | GoI</title>    
-    <meta name="description" content="This is Official Website of Staff Selection Commission.">
-    <meta name="keywords" content="SSC, CGL, GD constable, CAPFS and DP, Stenographers, JE, CPO, CHSL, Scientific Assistant">
+    <title> Answer Key | NSDC India | GoI</title>
+    <meta name="description" content="This is Official Website of NSDC India.">
+    <meta name="keywords" content="NSDC, nsdcindia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    
+
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
 
 
 
-<!-- 
+<!--
 <link rel="stylesheet" href="../Content/library/assets/css/bootstrap.css">
 <link rel="stylesheet" href="../Content/library/assets/css/font-awesome.css">
 <link href="../Content/library/assets/css/bootstrap-datepicker.css" rel="stylesheet" media="screen">
@@ -31,9 +31,9 @@
 <link href="../Content/library/assets/css/print.css" media="print" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="../Content/library/main.css">
 <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<script>  
-     window.jQuery || document.write("<script src='Content/jquery-3.5.1.min.html'><\/script>");  
-</script>  
+<script>
+     window.jQuery || document.write("<script src='Content/jquery-3.5.1.min.html'><\/script>");
+</script>
 
 
 
@@ -150,22 +150,22 @@
                         <ul>
                             {% for k in answers %}
                                 <li class="English">
-                                    
-                                    <a href="{{k.ans_pdf}}" target="_blank">
-                                        
+
+                                    <a href="{{k.ans_pdf.url}}" target="_blank">
+
                                         <i class="fa fa-hand-o-right"></i>
 
                                         <span>{{k.ans_name}}</span>
                                     </a>
-                                        
+
                                         <img class="file-icon" alt="" title="pdf document. opens in new tab" src="{{k.ans_img.url}}" />
                                         <small style="font-family:Calibri;">
-                                            ({{k.ans_size}})
+                                            ({{k.ans_size}} KB)
                                         </small>
-                                        
+
                                 </li>
                                 {% endfor %}
-                                
+
                         </ul>
                     </div>
                 </div>
@@ -256,7 +256,7 @@
             //        }
             //    }
             //}
-            
+
             $('.dropdown-toggle').keydown(function (event) {
                 if (event.which == 9 ) {
                     debugger;
@@ -266,7 +266,7 @@
                     }
                     else {
                         var elements = $(this).next('ul').children();
-                       
+
                         //var element = $(this + ' ul >li');
                             //$(this).siblings().first().child('li').focus();
                         elements[0].focus();

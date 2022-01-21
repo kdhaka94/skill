@@ -1,7 +1,7 @@
 {% extends 'template/index.html' %}
 {% load static %}
 {% block body %}
-    <style>
+ <style>
         * {
             margin: 0;
             padding: 0;
@@ -102,10 +102,29 @@
             font: 300 14px/1.7 Roboto, sans-serif;
         }
     </style>
-
-</head>
-    
 <script src="{% static 'js/JavaScript.js' %}"></script>
+</head>
+<body>
+<header class="mblemenus">
+
+        <div class="col-xs-6">
+            <div class="leftoneMenu text-left">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="menuclickleftOne">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="rightoneMenu text-right">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="menuclickRightOne">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
 <section class="bodypart">
     <div class="container">
         <div class="row">
@@ -247,18 +266,10 @@
         }
     });
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122939704-1"></script>
-<script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'UA-122939704-1');
-    </script>
 
-<script type="text/javascript" src="../Scripts/last_update_date.js" class = "lastupdatedatejs" param = "1" defer ></script> 
-   
+<script type="text/javascript" src="../Scripts/last_update_date.js" class = "lastupdatedatejs" param = "1" defer ></script>
+
 <script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/tipuesearch.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -340,7 +351,7 @@
             //        }
             //    }
             //}
-            
+
             $('.dropdown-toggle').keydown(function (event) {
                 if (event.which == 9 ) {
                     debugger;
@@ -350,7 +361,7 @@
                     }
                     else {
                         var elements = $(this).next('ul').children();
-                       
+
                         //var element = $(this + ' ul >li');
                             //$(this).siblings().first().child('li').focus();
                         elements[0].focus();
@@ -435,9 +446,8 @@
             })
         })
     </script>
+    </body>
 
-</body>
-
-<!-- Mirrored from ssc.nic.in/Portal/Notices by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Mar 2021 09:52:42 GMT -->
 </html>
+
 {% endblock %}
